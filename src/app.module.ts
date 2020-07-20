@@ -12,6 +12,7 @@ import { join } from 'path';
 import { ProductsController } from './products/products.controller';
 import { ProductsService } from './products/products.service';
 import { ProductsModule } from './products/products.module';
+import { DatasourcesModule } from './datasources/datasources.module';
  
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ProductsModule } from './products/products.module';
     CustomerModule,
     StudentsModule,
     ReportsModule,
+    DatasourcesModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
     }),
