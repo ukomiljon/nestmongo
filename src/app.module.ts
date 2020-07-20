@@ -1,19 +1,34 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatsModule } from './cats/cats.module';
-
+import { CustomerModule } from './customers/customer.module';
+import { StudentsModule } from './students/students.module';
+import { UsersModule } from './users/users.module';
+import { ReportsService } from './reports/reports.service';
+import { ReportsModule } from './reports/reports.module';
+import { join } from 'path';
+import { ProductsController } from './products/products.controller';
+import { ProductsService } from './products/products.service';
+import { ProductsModule } from './products/products.module';
+ 
 @Module({
   imports: [
-    CatsModule,
+    UsersModule,
+    CustomerModule,
+    StudentsModule,
+    ReportsModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
     }),
-    MongooseModule.forRoot('mongodb://localhost/nest'),
+    MongooseModule.forRoot('mongodb://localhost/nest', { useNewUrlParser: true, useUnifiedTopology: true }),
+    ProductsModule, 
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController ],
+  providers: [AppService ],
 })
-export class AppModule {}
+ 
+ 
+
+export class AppModule { }

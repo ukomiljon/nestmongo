@@ -3,24 +3,37 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-input CatInput {
-  name: String!
-  age: Int!
-  breed: String!
-}
-
-type CatType {
-  id: ID!
-  name: String!
-  age: Int!
-  breed: String!
-}
-
 type Mutation {
-  createCat(input: CatInput!): CatType!
+  createUser(input: UserInput!): UserType!
+  createReport(input: ReportInput!): ReportType!
 }
 
 type Query {
   hello: String!
-  cats: [CatType!]!
+  users: [UserType!]!
+  reports: [ReportType!]!
+}
+
+input ReportInput {
+  title: String!
+  type: String!
+}
+
+type ReportType {
+  id: ID!
+  title: String!
+  type: String!
+}
+
+input UserInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+type UserType {
+  id: ID!
+  name: String!
+  email: Int!
+  password: String!
 }

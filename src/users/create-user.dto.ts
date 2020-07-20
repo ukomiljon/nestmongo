@@ -1,13 +1,13 @@
 import { ObjectType, Field, Int, ID } from 'type-graphql';
 
 @ObjectType()
-export class CatType {
+export class UserType {
   @Field(() => ID)
   id: string;
   @Field()
   readonly name: string;
   @Field(() => Int)
-  readonly age: number;
+  readonly email: string;
   @Field()
-  readonly breed: string;
+  readonly password: string;
 }
