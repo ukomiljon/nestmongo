@@ -30,7 +30,9 @@ export class DatasourcesService {
 
     async delete(id: string): Promise<Datasource> {
         return await this.datasourceModel.findByIdAndRemove(id)
-    }
-
+       
+    } 
 
 }
+
+ 
